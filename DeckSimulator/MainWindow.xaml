@@ -1,12 +1,29 @@
 ﻿<Window x:Class="DeckSimulator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeckSimulator"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Deck Simulator" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- 左側：デッキ編集 -->
+        <StackPanel Grid.Column="0" Margin="5">
+            <TextBlock Text="デッキ編集" FontWeight="Bold" FontSize="16"/>
+            <ListBox x:Name="DeckListBox" Height="400" />
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBox x:Name="CardNameTextBox" Width="120" />
+                <Button Content="追加" Width="60" Margin="5,0,0,0" Click="AddCard_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- 右側：条件編集・シミュレーション -->
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Text="手札条件・シミュレーション" FontWeight="Bold" FontSize="16"/>
+            <CheckBox x:Name="HasSnowpiosCheckBox" Content="スノーピオスを含む"/>
+            <Button Content="シミュレーション開始" Margin="0,10,0,0" Click="RunSimulation_Click"/>
+            <TextBox x:Name="ResultTextBox" Height="400" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+        </StackPanel>
     </Grid>
 </Window>
