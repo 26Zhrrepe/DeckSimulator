@@ -32,63 +32,48 @@ namespace DeckSimulator
             DeckListView.ItemsSource = deck.Cards;
         }
 
-        private void AddCardByName(string name)
-        {
-            var card = allCards.FirstOrDefault(c => c.Name == name);
-            if (card != null)
-            {
-                var newCard = new Card
-                {
-                    Name = card.Name,
-                    Count = 1,
-                    CardType = card.CardType,
-                    IsTuner = card.IsTuner,
-                    Attribute = card.Attribute,
-                    Race = card.Race,
-                    Level = card.Level,
-                    Categories = new List<string>(card.Categories)
-                };
-
-                deck.AddCard(newCard);
-                RefreshDeckListView();
-            }
-            else
-            {
-                MessageBox.Show("カードが見つかりません");
-            }
-        }
         private void AddCardButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = CardNameTextBox.Text.Trim();
-            if (string.IsNullOrEmpty(name)) return;
+            string cardName = CardNameTextBox.Text.Trim();
+            string countText = CardCountTextBox.Text.Trim();
 
-            if (!int.TryParse(CardCountTextBox.Text.Trim(), out int count)) return;
-            if (count <= 0) return;
-
-            var baseCard = CardDatabase.FindByName(name);
-            if (baseCard == null)
+            if (string.IsNullOrEmpty(cardName))
             {
-                MessageBox.Show("カード情報が見つかりません。JSONファイルを確認してください。");
+                MessageBox.Show("カード名を入力してください。");
                 return;
             }
 
-            // デッキに入れる用のカード（Countだけ別途設定）
-            var cardToAdd = new Card
+            Card card = CardDatabase.FindCardByName(cardName);
+            if (card == null)
             {
-                Name = baseCard.Name,
-                CardType = baseCard.CardType,
-                Attribute = baseCard.Attribute,
-                Race = baseCard.Race,
-                Level = baseCard.Level,
-                Categories = baseCard.Categories,
-                Count = count
-            };
+                MessageBox.Show("指定されたカードが見つかりません。");
+                return;
+            }
 
-            deck.AddCard(cardToAdd);
+            int count = 3; // デフォルトは3枚
+            if (!string.IsNullOrEmpty(countText))
+            {
+                if (!int.TryParse(countText, out count) || count < 1)
+                {
+                    MessageBox.Show("枚数は1以上の整数で入力してください。");
+                    return;
+                }
+            }
+
+            // デッキに追加（既存カードなら加算）
+            deck.AddCard(card, count);
             RefreshDeckListView();
 
             CardNameTextBox.Text = "";
             CardCountTextBox.Text = "";
+        }
+        private void RemoveCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DeckListView.SelectedItem is Card selectedCard)
+            {
+                deck.RemoveCard(selectedCard);
+                RefreshDeckListView();
+            }
         }
 
 

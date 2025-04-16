@@ -21,7 +21,9 @@
                         <TextBox x:Name="CardNameTextBox" Width="200" Margin="0,0,10,0" />
                         <TextBox x:Name="CardCountTextBox" Width="50" Margin="0,0,10,0" />
                         <Button Content="追加" Click="AddCardButton_Click" />
+                        <Button Content="選択したカードを削除" Width="120" Margin="10,0,10,0" Click="RemoveCardButton_Click" />
                     </StackPanel>
+
 
 
                     <!-- デッキ表示 -->

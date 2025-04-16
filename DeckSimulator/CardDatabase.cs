@@ -12,7 +12,7 @@ public static class CardDatabase
         _cards = JsonSerializer.Deserialize<List<Card>>(json);
     }
 
-    public static Card? FindByName(string name)
+    public static Card? FindCardByName(string name)
     {
         return _cards?.FirstOrDefault(c => c.Name == name);
     }

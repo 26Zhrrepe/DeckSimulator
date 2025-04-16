@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyProjects\\DeckSimulator\\DeckSimulator\\DeckSimulator.csproj",
+      "projectUniqueName": "C:\\Users\\hisuk\\source\\repos\\DeckSimulator\\DeckSimulator\\DeckSimulator.csproj",
       "projectName": "DeckSimulator",
-      "projectPath": "D:\\MyProjects\\DeckSimulator\\DeckSimulator\\DeckSimulator.csproj",
+      "projectPath": "C:\\Users\\hisuk\\source\\repos\\DeckSimulator\\DeckSimulator\\DeckSimulator.csproj",
       "packagesPath": "C:\\Users\\hisuk\\.nuget\\packages\\",
-      "outputPath": "D:\\MyProjects\\DeckSimulator\\DeckSimulator\\obj\\",
+      "outputPath": "C:\\Users\\hisuk\\source\\repos\\DeckSimulator\\DeckSimulator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
