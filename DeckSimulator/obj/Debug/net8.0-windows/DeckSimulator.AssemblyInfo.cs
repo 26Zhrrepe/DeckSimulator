@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeckSimulator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+529bf199875425038a0fa5b8f2a25c16efd91099")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeckSimulator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeckSimulator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

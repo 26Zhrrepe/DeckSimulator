@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "スノーピオス",
+    "Count": 3,
+    "CardType": "Monster",
+    "IsTuner": false,
+    "Attribute": "WATER",
+    "Race": "Fish",
+    "Level": 6,
+    "Categories": [ "ゴーティス" ]
+  },
+  {
+    "Name": "ペイシス",
+    "Count": 3,
+    "CardType": "Monster",
+    "IsTuner": true,
+    "Attribute": "WATER",
+    "Race": "Fish",
+    "Level": 2,
+    "Categories": [ "氷水" ]
+  },
+  {
+    "Name": "ラーン",
+    "Count": 3,
+    "CardType": "Monster",
+    "IsTuner": true,
+    "Attribute": "WATER",
+    "Race": "apua",
+    "Level": 7,
+    "Categories": [ "氷水" ]
+  },
+  {
+    "Name": "簡素融合",
+    "Count": 2,
+    "CardType": "Spell",
+    "Categories": []
+  }
+]

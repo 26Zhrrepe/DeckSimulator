@@ -1,12 +1,51 @@
 ﻿<Window x:Class="DeckSimulator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeckSimulator"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="デッキシミュレーター" Height="450" Width="800">
     <Grid>
+        <TabControl>
+            <TabItem Header="デッキ編集">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- カード名と枚数の入力 -->
+                    <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+                        <TextBox x:Name="CardNameTextBox" Width="200" Margin="0,0,10,0" />
+                        <TextBox x:Name="CardCountTextBox" Width="50" Margin="0,0,10,0" />
+                        <Button Content="追加" Click="AddCardButton_Click" />
+                    </StackPanel>
+
+
+                    <!-- デッキ表示 -->
+                    <ListView x:Name="DeckListView" Grid.Row="1">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="カード名" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="枚数" DisplayMemberBinding="{Binding Count}" />
+                                <GridViewColumn Header="種類" DisplayMemberBinding="{Binding CardType}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="シミュレーション">
+                <StackPanel Margin="10">
+                    <TextBlock Text="引く枚数:" />
+                    <TextBox x:Name="DrawCountTextBox" Width="100" Text="5"/>
+                    <TextBlock Text="結果:" Margin="0,10,0,0"/>
+                    <ListBox x:Name="SimulationResultListBox"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
